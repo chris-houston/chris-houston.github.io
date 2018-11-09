@@ -16,7 +16,7 @@ body {
 .coming-soon h2 {
     text-align: center;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 100;
+    font-weight: 200;
 }
 
 .coming-soon h1 {
@@ -31,7 +31,7 @@ body {
     text-align: center;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
-    padding: 30px 20%;
+    padding: 0px 20%;
 }
 
 .coming-soon .app-container {
@@ -53,7 +53,7 @@ body {
 
 .coming-soon hr {
     border-width: 1px;
-    margin: 0px 50px;
+    margin: 0px 10%;
 }
 
 
@@ -61,6 +61,7 @@ body {
 .app-store-button {
     width: 150px;
     height: 50px;
+    margin-top: 20px;
 }
 
 .app-icon {
