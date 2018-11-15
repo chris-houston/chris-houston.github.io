@@ -69,6 +69,11 @@ body {
     width: 100px;
 }
 
+.app-icon-grade-pal {
+    height: 100px;
+    width: 110px;
+}
+
 .email-container {
     padding-top: 540px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
