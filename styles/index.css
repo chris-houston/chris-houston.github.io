@@ -24,7 +24,18 @@ body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
     padding-top: 100px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
     font-size: 48px;
+}
+
+.coming-soon h3 {
+    text-align: center;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    margin: 0px;
+    padding: 0px;
+    font-size: 24px;
 }
 
 .coming-soon p {
@@ -39,17 +50,12 @@ body {
     margin-left: 10px;
 }
 
-.coming-soon .left-app {
+.coming-soon .column-app {
     float: left;
-    width: 50%;
+    width: 33.33%;
     text-align: center;
 }
 
-.coming-soon .right-app {
-    float: right;
-    width: 50%;
-    text-align: center;
-}
 
 .coming-soon hr {
     border-width: 1px;
@@ -65,13 +71,18 @@ body {
 }
 
 .app-icon {
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
 }
 
 .app-icon-grade-pal {
-    height: 100px;
-    width: 110px;
+    height: 200px;
+    width: 220px;
+}
+
+.app-icon-daily-llama {
+    height: 200px;
+    width: 200px;
 }
 
 .email-container {
