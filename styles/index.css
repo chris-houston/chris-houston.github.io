@@ -4,9 +4,9 @@ body {
 
 /* Coming soon page */
 .coming-soon {
-    height: 1400px;
+    height: 900px;
     width: 75%;
-    min-width: 700px;
+    min-width: 900px;
     margin: 50px 12.5%;
     background-color: white;
     box-shadow: 5px 5px 20px #cccccc;
@@ -128,7 +128,8 @@ body {
 }
 
 .footer {
-    margin-top: 100px;
+    margin-top: 48px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     text-align: center;
     color: #999999;
     font-size: 14px;
