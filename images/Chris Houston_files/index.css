@@ -14,37 +14,25 @@ a:hover {
 
 /* Coming soon page */
 .coming-soon {
-    height: 500px;
+    height: 700px;
     width: 60%;
-    min-width: 800px;
-    margin: 150px 20% 24px 20%;
+    min-width: 900px;
+    margin: 150px 20%;
     background-color: white;
     box-shadow: 5px 5px 20px #cccccc;
     border-radius: 15px;
 }
 
-.coming-soon .name {
-    margin-left: 6%;
-    padding-top: 100px;
-    text-align: left;
-    font-size: 38px;
-    color: black;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: bold;
-}
-
-.coming-soon .developer {
-    text-align: left;
-    font-size: 38px;
-    color: #aaaaaa;
+.coming-soon h2 {
+    text-align: center;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 200;
 }
 
 .coming-soon h3 {
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 300;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: bold;
     padding-top: 100px;
     margin-bottom: 0px;
     padding-bottom: 0px;
@@ -53,13 +41,13 @@ a:hover {
 
 .coming-soon p {
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
+    padding: 0px 20%;
 }
 
 .coming-soon .app-container {
     width: 100%;
-    height: 160px;
     margin-left: 10px;
 }
 
@@ -85,9 +73,6 @@ a:hover {
 .coming-soon hr {
     border-width: 1px;
     margin: 0px 5%;
-    border-color: #cccccc;
-    background-color: #cccccc;
-    color:#cccccc;
 }
 
 
