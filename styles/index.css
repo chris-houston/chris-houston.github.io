@@ -17,7 +17,7 @@ a:hover {
     height: 480px;
     width: 60%;
     min-width: 800px;
-    margin: 150px 20% 24px 20%;
+    margin: 10% 20% 24px 20%;
     background-color: white;
     box-shadow: 5px 5px 20px #cccccc;
     border-radius: 15px;
@@ -126,9 +126,18 @@ a:hover {
 }
 
 .footer {
-    margin-top: 48px;
+    margin-top: 72px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     text-align: center;
     color: #999999;
     font-size: 14px;
 }
+
+.footer .footer-link {
+    color: gray;
+}
+
+.footer .footer-link:hover {
+    color: black;
+}
+
