@@ -14,7 +14,7 @@ a:hover {
 
 /* Coming soon page */
 .coming-soon {
-    height: 500px;
+    height: 480px;
     width: 60%;
     min-width: 800px;
     margin: 150px 20% 24px 20%;
@@ -41,14 +41,33 @@ a:hover {
     font-weight: 200;
 }
 
-.coming-soon h3 {
-    text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 300;
-    padding-top: 100px;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-    font-size: 48px;
+
+.coming-soon .contact-me {
+    margin-top: 10px;
+    text-align: right;
+    height: 32px;
+    width: 32px;
+    margin-right: 64px;
+    float: right;
+}
+
+.coming-soon .contact-me {
+    margin-top: 10px;
+    text-align: right;
+    height: 32px;
+    width: 32px;
+    margin-right: 64px;
+    float: right;
+    opacity: 1.0;
+
+}
+
+.coming-soon .contact-me:hover {
+    opacity: 0.6;
+    margin-top: 8px;
+    margin-right: 62px;
+    height: 36px;
+    width: 36px;
 }
 
 .coming-soon p {
@@ -59,7 +78,7 @@ a:hover {
 
 .coming-soon .app-container {
     width: 100%;
-    height: 160px;
+    height: 180px;
     margin-left: 10px;
 }
 
@@ -90,12 +109,20 @@ a:hover {
     color:#cccccc;
 }
 
-
 /* Extras */
 
 .app-icon {
+    margin: 20px;
     height: 200px;
     width: 200px;
+    opacity: 1;
+}
+
+.app-icon:hover {
+    margin: 0px;
+    opacity: 0.8;;
+    height: 240px;
+    width: 240px;
 }
 
 .footer {
