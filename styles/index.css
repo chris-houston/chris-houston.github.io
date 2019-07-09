@@ -144,6 +144,13 @@ a:hover {
     width: 240px;
 }
 
+.top-icon {
+    align-content: center;
+    height: 48;
+    width: 48;
+    opacity: 1;
+}
+
 .footer {
     margin-top: 72px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
