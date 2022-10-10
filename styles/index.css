@@ -15,7 +15,7 @@ a:hover {
 /* Coming soon page */
 
 .coming-soon {
-    height: 480px;
+    height: 900px;
     width: 60%;
     min-width: 780px;
     margin: 10% 20% 24px 20%;
@@ -102,6 +102,18 @@ a:hover {
     text-align: left;
 }
 
+.coming-soon .column-app-center-left {
+    float: left;
+    width: 50%;
+    text-align: right;
+}
+
+.coming-soon .column-app-center-right {
+    float: right;
+    width: 50%;
+    text-align: left;
+}
+
 
 .coming-soon hr {
     border-width: 1px;
@@ -128,6 +140,13 @@ a:hover {
 }
 
 /* Extras */
+.store-icon {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 200px
+}
+
 
 .app-icon {
     margin: 20px;
