@@ -15,7 +15,7 @@ a:hover {
 /* Coming soon page */
 
 .coming-soon {
-    height: 860px;
+    height: 1600px;
     width: 60%;
     min-width: 780px;
     margin: 10% 20% 24px 20%;
@@ -43,6 +43,16 @@ a:hover {
     font-weight: 200;
 }
 
+
+.coming-soon .header {
+    margin-left: 6%;
+    padding-top: 100px;
+    text-align: left;
+    font-size: 24px;
+    color: #666666;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: bold;
+}
 
 .coming-soon .contact-me {
     margin-top: 10px;
@@ -82,6 +92,12 @@ a:hover {
     width: 100%;
     height: 180px;
     margin-left: 10px;
+}
+
+.about-container p {
+    padding-left: 60px;
+    padding-right: 60px;
+    text-align: left;
 }
 
 .coming-soon .column-app {
