@@ -1,0 +1,10 @@
+{
+  "name": "chris-houston-portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx http-server -p 8000 -o"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
