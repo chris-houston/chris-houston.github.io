@@ -1,0 +1,258 @@
+:root {
+  --bg: #090b17;
+  --surface: rgba(255, 255, 255, 0.07);
+  --surface-border: rgba(255, 255, 255, 0.18);
+  --text: #f4f7ff;
+  --text-muted: #b6bfdc;
+  --primary: #5f8bff;
+  --secondary: #29d8ff;
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top right, #1a1d3f 0%, var(--bg) 55%);
+  min-height: 100%;
+}
+
+.background-glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  top: -120px;
+  right: -80px;
+  background: radial-gradient(circle, rgba(41, 216, 255, 0.4), transparent 70%);
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+main,
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 1.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+a.logo {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.logo:hover {
+  color: var(--secondary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--surface-border);
+  background: var(--surface);
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-link:hover {
+  transform: translateY(-1px);
+  border-color: var(--secondary);
+}
+
+.hero {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  margin: 0;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(95, 139, 255, 0.2);
+  border: 1px solid rgba(95, 139, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+.hero h1 {
+  margin: 1rem auto 0;
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  max-width: 750px;
+  line-height: 1.08;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 1rem auto 0;
+  font-size: 1.05rem;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button {
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.1rem;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button.primary {
+  color: #07101d;
+  background: linear-gradient(130deg, var(--secondary), var(--primary));
+}
+
+.button.secondary {
+  color: var(--text);
+  border: 1px solid var(--surface-border);
+  background: var(--surface);
+}
+
+.apps-section {
+  margin-top: 5.5rem;
+  margin-bottom: 4rem;
+}
+
+.apps-section h2 {
+  margin-bottom: 0.2rem;
+  font-size: 1.8rem;
+}
+
+.section-subtitle {
+  margin-top: 0;
+  color: var(--text-muted);
+}
+
+.app-grid {
+  margin-top: 1.3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.app-card {
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 1.2rem;
+}
+
+.app-link-card {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.app-link-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--secondary);
+}
+
+.app-icon-placeholder {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #4d6df2, #23b9f3);
+  font-weight: 800;
+}
+
+.app-card h3 {
+  margin-bottom: 0.35rem;
+}
+
+.app-grid-icons .app-card h3 {
+  margin: 1rem 0 0;
+  font-size: 1.06rem;
+}
+
+.app-icon {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+  margin: 0 auto;
+}
+
+.app-card p {
+  margin-top: 0;
+  color: var(--text-muted);
+}
+
+.store-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.store-badges span {
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--surface-border);
+  font-size: 0.8rem;
+}
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.1rem 0 2.2rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    margin-top: 2.5rem;
+  }
+
+  .apps-section {
+    margin-top: 4rem;
+  }
+}
