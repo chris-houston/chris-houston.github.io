@@ -45,7 +45,7 @@ This is the root website repository, `chris-houston/chris-houston.github.io`, no
 
 The site now requires a build. At launch, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**. The workflow in `.github/workflows/deploy.yml` builds and verifies pull requests; pushes to `master` also deploy the verified `dist/` artifact. Branch names in that workflow intentionally match this repository’s existing `master` branch.
 
-The approved redesign is published from `master`. Keep the previous commit available for rollback; restoring the old buildless site also requires restoring its prior Pages publishing source. The older `chris-houston/apps` project must have Pages disabled because its `/apps/` mount otherwise overrides this site’s collection and detail pages. Its legal and advertising URLs are preserved here before retiring that duplicate deployment.
+The approved redesign is published from `master`. Keep the previous commit available for rollback; restoring the old buildless site also requires restoring its prior Pages publishing source. The older `chris-houston/apps` project must have Pages disabled because its `/apps/` mount otherwise overrides this site’s collection and detail pages. Its legal and advertising URLs are preserved here before retiring that duplicate deployment. The separate `chris-houston/daily-llama` project remains published to preserve its original landing page. Its missing `/daily-llama/privacy-policy.html` file was restored there using the identical policy also kept in this repository.
 
 ## Compatibility
 
@@ -59,5 +59,7 @@ Two pre-existing policy links point to terms files that were never present:
 The verifier reports these existing issues separately; it rejects any new missing local link. Owner-approved terms are needed before those links can be repaired without changing legal substance.
 
 ## Checks
+
+After each deployment, `npm run verify:live` checks all app pages and fetches all 46 legacy URLs from the public server, comparing their content byte-for-byte with the preserved files. It retries during CDN propagation and fails the deployment check if another Pages project overrides a route. The same command can be run locally when auditing production.
 
 The static verifier checks preserved URLs and exact legacy content, retirement of the résumé, local page and asset links, metadata, image alternatives, social artwork, sitemap, and font files. Browser checks additionally cover all 13 app selections, the matching screenshot galleries, image enlargement and dismissal, category deep links, the full app-page screenshot grids, combined category/platform filters, app-specific support links, mobile layouts, and keyboard navigation. Reduced-motion rules are also checked in source; browser emulation was unavailable.
