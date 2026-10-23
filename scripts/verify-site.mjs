@@ -1,15 +1,11 @@
 import assert from 'node:assert/strict';
 import { readFile, readdir, access, stat } from 'node:fs/promises';
 import { join, resolve, relative } from 'node:path';
+import { apps } from '../src/data/apps.ts';
 
 const dist = resolve('dist');
 const legacyRoutes = JSON.parse(await readFile('scripts/legacy-routes.json', 'utf8'));
-const knownLegacyBrokenLinks = new Set([
-  'gel-glide-privacy-policy.html:gel-glide-terms-of-service.html',
-  'stack-em-privacy-policy.html:stack-em-terms-of-service.html',
-]);
 const failures = [];
-const legacyWarnings = [];
 let pages = 0;
 let checkedLinks = 0;
 async function exists(path) { try { await access(path); return true; } catch { return false; } }
@@ -25,6 +21,15 @@ async function walk(dir) {
 for (const route of legacyRoutes) {
   assert(await exists(join(dist, route)), `Missing legacy URL: /${route}`);
   assert((await readFile(join(dist, route))).equals(await readFile(join('public', route))), `Legacy content changed: /${route}`);
+}
+// The owner opted to omit a policy link for legacy Grade Pal. All other
+// listed apps need a policy, and every declared legal URL must be checked live.
+for (const app of apps) {
+  assert(app.privacy || app.slug === 'grade-pal', `Missing privacy policy for ${app.name}`);
+  for (const [kind, url] of [['privacy', app.privacy], ['terms', app.terms]]) {
+    if (!url) continue;
+    assert(url.startsWith('/') && legacyRoutes.includes(url.slice(1)), `${app.name} ${kind} URL is missing from the protected route manifest: ${url}`);
+  }
 }
 assert(!(await exists(join(dist, 'resume'))), 'The retired résumé must not be published');
 assert(!(await exists(join(dist, 'resume.html'))), 'The retired résumé must not be published');
@@ -52,15 +57,12 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
     if (await exists(target) && (await stat(target)).isDirectory()) target = join(target, 'index.html');
     checkedLinks++;
     if (!(await exists(target))) {
-      const key = `${page}:${path}`;
-      if (knownLegacyBrokenLinks.has(key)) legacyWarnings.push(key);
-      else failures.push(`${page}: missing ${raw}`);
+      failures.push(`${page}: missing ${raw}`);
     }
   }
 }
 assert(await exists(join(dist, 'sitemap.xml')), 'Missing sitemap');
 assert(await exists(join(dist, 'images/social-preview.png')), 'Missing social sharing image');
 assert(await exists(join(dist, 'fonts/dm-sans-latin.woff2')), 'Missing self-hosted font');
-for (const warning of legacyWarnings) console.warn(`Existing policy link needs owner-provided terms: ${warning}`);
 if (failures.length) { console.error(failures.join('\n')); process.exitCode = 1; }
-else console.log(`Verified ${pages} pages, ${checkedLinks} local links, ${legacyRoutes.length} preserved legacy URLs, and removal of the résumé route. No new broken local links.`);
+else console.log(`Verified ${pages} pages, ${checkedLinks} local links, ${legacyRoutes.length} preserved legacy URLs, and removal of the résumé route. No broken local links.`);
