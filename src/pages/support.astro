@@ -1,0 +1,26 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Arrow from '../components/Arrow.astro';
+import { apps } from '../data/apps';
+---
+<SiteLayout title="Support & policies — Chris Houston Apps" description="Get help with a Chris Houston app, share feedback, or find privacy policies and terms.">
+  <section class="page-intro container"><p class="eyebrow">Support & feedback</p><h1>App support.<br /><span class="accent-text">Real answers.</span></h1><p>Questions, feedback, or something not working?<br />Get in touch directly with the developer.</p></section>
+  <section class="support-contact container"><div><p class="eyebrow">Talk to Chris</p><h2>A real person.<br /><span class="accent-text">A real inbox.</span></h2><p>For app help, feedback, or a question, send me an email. Including your app name, device, and what happened helps me understand the issue.</p><label class="support-picker" data-support-picker hidden>Which app?<select data-support-app><option value="">General question</option>{apps.map(app => <option value={app.slug}>{app.name}</option>)}</select></label><a class="button button-dark" data-support-email href="mailto:dev.chrishouston@gmail.com">Email Chris <Arrow diagonal /></a><a class="email-address" href="mailto:dev.chrishouston@gmail.com">dev.chrishouston@gmail.com</a></div><div class="support-note"><span aria-hidden="true">✳</span><h3>A little detail goes a long way.</h3><p>Your app name<br />Your device and operating system<br />What you expected to happen<br />What happened instead</p><small>Please leave passwords and payment details out of your message.</small></div></section>
+  <section class="policies-section container" id="policies"><div class="section-heading"><div><p class="eyebrow">The details</p><h2>App <span class="accent-text">policies.</span></h2></div><p>Privacy policies and terms for each app.</p></div><div class="policy-list">{apps.map(app => <div class="policy-row"><div><img src={app.icon} width="38" height="38" alt="" loading="lazy" /><a href={`/apps/${app.slug}/`}>{app.name}</a></div><div>{app.privacy ? <a href={app.privacy}>Privacy policy <Arrow diagonal /></a> : <a href={`mailto:dev.chrishouston@gmail.com?subject=${encodeURIComponent(`${app.name} privacy policy question`)}`}>Ask about privacy <Arrow diagonal /></a>}{app.terms && <a href={app.terms}>Terms <Arrow diagonal /></a>}</div></div>)}</div></section>
+</SiteLayout>
+<script>
+  import { apps } from '../data/apps';
+  const picker = document.querySelector<HTMLElement>('[data-support-picker]');
+  const select = document.querySelector<HTMLSelectElement>('[data-support-app]');
+  const email = document.querySelector<HTMLAnchorElement>('[data-support-email]');
+  if (picker && select && email) {
+    picker.hidden = false;
+    const requested = new URLSearchParams(window.location.search).get('app');
+    if (apps.some(app => app.slug === requested)) select.value = requested!;
+    const update = () => {
+      const app = apps.find(app => app.slug === select.value);
+      email.href = `mailto:dev.chrishouston@gmail.com?subject=${encodeURIComponent(app ? `${app.name} support` : 'App support')}`;
+    };
+    select.addEventListener('change', update); update();
+  }
+</script>

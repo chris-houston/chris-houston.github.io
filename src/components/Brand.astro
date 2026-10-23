@@ -1,0 +1,7 @@
+---
+interface Props { label?: string; }
+const { label = 'Chris Houston Apps home' } = Astro.props;
+---
+<a class="wordmark" href="/" aria-label={label}>
+  <span class="wordmark-type">houston<span class="wordmark-slash" aria-hidden="true">/</span><span class="wordmark-product">apps</span></span>
+</a>

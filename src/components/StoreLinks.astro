@@ -1,0 +1,9 @@
+---
+import type { App } from '../data/apps';
+interface Props { app: App; compact?: boolean; }
+const { app, compact = false } = Astro.props;
+---
+<div class:list={['store-links', { compact }]}>
+  {app.stores.ios && <a class="store-link store-link-apple" href={app.stores.ios} target="_blank" rel="noopener noreferrer" aria-label={`Download ${app.name} on the App Store`}><img src="/images/app_store_button.png" width="436" height="143" alt="" /></a>}
+  {app.stores.android && <a class="store-link store-link-google" href={app.stores.android} target="_blank" rel="noopener noreferrer" aria-label={`Get ${app.name} on Google Play`}><img src="/images/google-play-badge.png" width="646" height="250" alt="" /></a>}
+</div>

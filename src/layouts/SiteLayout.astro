@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import Arrow from '../components/Arrow.astro';
+import Brand from '../components/Brand.astro';
+interface Props { title?: string; description?: string; }
+const { title = 'Chris Houston Apps — Daily Llama, games & everyday tools', description = 'Discover Daily Llama, mobile games, and everyday apps for iOS and Android, built by Chris Houston.' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const isApps = Astro.url.pathname.startsWith('/apps');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0d111a" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/images/social-preview.png', Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><div class="container nav-inner">
+      <Brand />
+      <nav aria-label="Main navigation"><a class:list={{ active: isApps }} href="/apps/" aria-current={Astro.url.pathname === '/apps/' ? 'page' : undefined} aria-label="All apps"><span class="nav-all-prefix">All </span>Apps</a><a href="/#maker">About</a><a class="nav-contact" href="/support/">Support <Arrow diagonal /></a></nav>
+    </div></header>
+    <main id="main" tabindex="-1"><slot /></main>
+    <footer class="site-footer"><div class="container">
+      <div class="footer-top"><Brand label="Chris Houston Apps" /><p>Games, companions,<br />and tools for everyday.</p><a class="text-link" href="mailto:dev.chrishouston@gmail.com">Contact Chris <Arrow diagonal /></a></div>
+      <div class="footer-bottom"><span>© {new Date().getFullYear()} Chris Houston</span><div><a href="/apps/">All apps</a><a href="/support/">Support & policies</a></div><span class="footer-signoff">Built independently.</span></div>
+    </div></footer>
+
+  </body>
+</html>

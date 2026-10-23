@@ -1,0 +1,108 @@
+{
+  "product": "Daily Llama",
+  "checked_date": "2026-10-22",
+  "official_pages": {
+    "apple": "https://apps.apple.com/us/app/daily-llama/id1445977851",
+    "google_play": "https://play.google.com/store/apps/details?id=com.chrishouston.dailyllama.android",
+    "apple_lookup": "https://itunes.apple.com/lookup?id=1445977851&country=us"
+  },
+  "apple_us_rating": 4.73579,
+  "apple_us_rating_count": 4152,
+  "google_play_public_download_bracket": "1K+",
+  "google_play_public_rating": 4.8,
+  "google_play_public_review_count": 30,
+  "assets": [
+    {
+      "name": "item-shop",
+      "kind": "screenshot",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6b/c5/eb/6bc5eb41-a052-6c17-821f-a5d710c9925b/c8afb5b6-ae53-4c5f-813f-1d5117ab5d0f_Item_Shop.png/392x696bb.png",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6b/c5/eb/6bc5eb41-a052-6c17-821f-a5d710c9925b/c8afb5b6-ae53-4c5f-813f-1d5117ab5d0f_Item_Shop.png/1242x2208bb.png",
+      "width": 1242,
+      "height": 2208,
+      "inspection_note": "Official Apple store marketing composite, with title and white phone on blue background; not a raw app screenshot."
+    },
+    {
+      "name": "cosmetics",
+      "kind": "screenshot",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3a/63/29/3a632902-be11-a2f4-897c-37f69a8ce040/75b53b00-9bd9-4f02-a990-15eb80fabc50_All_Costmetics.png/392x696bb.png",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3a/63/29/3a632902-be11-a2f4-897c-37f69a8ce040/75b53b00-9bd9-4f02-a990-15eb80fabc50_All_Costmetics.png/1242x2208bb.png",
+      "width": 1242,
+      "height": 2208,
+      "inspection_note": "Official Apple store marketing composite, with title and white phone on blue background; not a raw app screenshot."
+    },
+    {
+      "name": "item-details",
+      "kind": "screenshot",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4a/90/fa/4a90fae0-7f12-8f60-7be4-abf8088cf007/7945d7f2-0e7e-4f54-a920-ccaf0a6284a1_Item_Details.png/392x696bb.png",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4a/90/fa/4a90fae0-7f12-8f60-7be4-abf8088cf007/7945d7f2-0e7e-4f54-a920-ccaf0a6284a1_Item_Details.png/1242x2208bb.png",
+      "width": 1242,
+      "height": 2208,
+      "inspection_note": "Official Apple store marketing composite, with title and white phone on blue background; not a raw app screenshot."
+    },
+    {
+      "name": "player-stats",
+      "kind": "screenshot",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a8/29/4a/a8294af7-e533-def6-2f69-400340949b98/73fa481a-fc63-4267-93bf-ccc6d03e8ca9_Stats.png/392x696bb.png",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a8/29/4a/a8294af7-e533-def6-2f69-400340949b98/73fa481a-fc63-4267-93bf-ccc6d03e8ca9_Stats.png/1242x2208bb.png",
+      "width": 1242,
+      "height": 2208,
+      "inspection_note": "Official Apple store marketing composite, with title and white phone on blue background; not a raw app screenshot."
+    },
+    {
+      "name": "map",
+      "kind": "screenshot",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f6/5e/2b/f65e2b0c-7390-dd9c-65af-9c7c44e678c7/6b86c15a-64eb-48b2-bc7b-dd6ec934d385_Map.png/392x696bb.png",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f6/5e/2b/f65e2b0c-7390-dd9c-65af-9c7c44e678c7/6b86c15a-64eb-48b2-bc7b-dd6ec934d385_Map.png/1242x2208bb.png",
+      "width": 1242,
+      "height": 2208,
+      "inspection_note": "Official Apple store marketing composite, with title and white phone on blue background; not a raw app screenshot."
+    },
+    {
+      "name": "daily-llama-icon",
+      "kind": "icon",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f6/94/e7/f694e7d2-3718-914d-1d98-4544cc6e603d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f6/94/e7/f694e7d2-3718-914d-1d98-4544cc6e603d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/1024x1024bb.png",
+      "width": 1024,
+      "height": 1024,
+      "inspection_note": "Official icon; white llama silhouette on cyan."
+    },
+    {
+      "name": "idle-hobo-icon",
+      "product": "Idle Hobo",
+      "kind": "icon",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f3/37/2b/f3372b33-3d4c-254c-8df0-effc8da7eac0/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "local_path": "public/images/idle-hobo.png",
+      "width": 384,
+      "height": 384,
+      "checked_date": "2026-10-22",
+      "inspection_note": "Official App Store icon, resized and optimized for the website."
+    },
+    {
+      "name": "google-play-download-badge",
+      "kind": "store-badge",
+      "source_url": "https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png",
+      "local_path": "public/images/google-play-badge.png",
+      "width": 646,
+      "height": 250,
+      "checked_date": "2026-10-22",
+      "inspection_note": "Complete official download badge, used without altering its artwork."
+    }
+  ],
+  "suggested_copy": {
+    "description": "Your Fortnite companion, wherever you play. Browse the live item shop, explore cosmetics, follow the latest news, and check player stats in one place.",
+    "disclaimer": "Daily Llama is an unofficial Fortnite companion app and is not affiliated with Epic Games.",
+    "features": [
+      "Live item shop",
+      "Cosmetic library",
+      "Player stats",
+      "News and videos",
+      "Map and drop wheel"
+    ]
+  },
+  "claims_notes": [
+    "Do not claim a verified number one ranking; the store description self-describes this but provides no ranking evidence.",
+    "Apple does not list download counts publicly. Google Play only supports 1K+ Android downloads; do not present as a cross-platform total.",
+    "Ratings are US Apple storefront values checked 2026-10-22, not global counts.",
+    "Store screenshots contain older game content; describe them as app previews rather than current season content."
+  ]
+}

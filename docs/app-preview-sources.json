@@ -1,0 +1,411 @@
+{
+  "checked_date": "2026-10-22",
+  "notes": [
+    "Official App Store and Google Play promotional screenshots, resized to WebP without changing their content.",
+    "Store previews may include marketing artwork and older example app content."
+  ],
+  "assets": [
+    {
+      "slug": "daily-llama",
+      "provider": "App Store",
+      "store_url": "https://apps.apple.com/us/app/daily-llama/id1445977851",
+      "note": "Reuses the four existing official previews. Original image URLs are recorded in docs/asset-sources.json."
+    },
+    {
+      "slug": "unblock-me-colors",
+      "provider": "App Store",
+      "label": "Sliding puzzles",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/91/a3/ca/91a3caf4-c652-2a46-cda4-daf01edd7489/1__U00282_U0029.jpg/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/91/a3/ca/91a3caf4-c652-2a46-cda4-daf01edd7489/1__U00282_U0029.jpg/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/unblock-me-colors/id6762630544?uo=4",
+      "local_path": "public/images/app-previews/unblock-me-colors/preview-1.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "unblock-me-colors",
+      "provider": "App Store",
+      "label": "Learn the moves",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/20/40/3d/20403d1b-d6da-d7a9-bf4e-3900a48082a1/2__U00284_U0029.jpg/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/20/40/3d/20403d1b-d6da-d7a9-bf4e-3900a48082a1/2__U00284_U0029.jpg/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/unblock-me-colors/id6762630544?uo=4",
+      "local_path": "public/images/app-previews/unblock-me-colors/preview-2.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "unblock-me-colors",
+      "provider": "App Store",
+      "label": "Tougher challenges",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/78/be/f6/78bef6a4-8ad5-fb4f-f0e0-2480e0215bd1/3__U00284_U0029.jpg/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/78/be/f6/78bef6a4-8ad5-fb4f-f0e0-2480e0215bd1/3__U00284_U0029.jpg/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/unblock-me-colors/id6762630544?uo=4",
+      "local_path": "public/images/app-previews/unblock-me-colors/preview-3.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "gel-glide",
+      "provider": "App Store",
+      "label": "Swipe, slide, solve",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/75/f8/39/75f83978-9806-edaf-574e-3809854855ec/1.png/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/75/f8/39/75f83978-9806-edaf-574e-3809854855ec/1.png/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/gel-glide/id6762057714?uo=4",
+      "local_path": "public/images/app-previews/gel-glide/preview-1.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "gel-glide",
+      "provider": "App Store",
+      "label": "Explore the levels",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0f/fc/21/0ffc2134-18a9-ce1c-1cae-3a3c926d1156/2.png/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0f/fc/21/0ffc2134-18a9-ce1c-1cae-3a3c926d1156/2.png/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/gel-glide/id6762057714?uo=4",
+      "local_path": "public/images/app-previews/gel-glide/preview-2.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "gel-glide",
+      "provider": "App Store",
+      "label": "Daily puzzles",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f5/90/e0/f590e088-617e-0822-319f-140f21630f59/3.png/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f5/90/e0/f590e088-617e-0822-319f-140f21630f59/3.png/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/gel-glide/id6762057714?uo=4",
+      "local_path": "public/images/app-previews/gel-glide/preview-3.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "idle-harvest",
+      "provider": "App Store",
+      "label": "Welcome to the farm",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b4/94/e8/b494e8c1-da48-dbb5-a8cc-c7f580591128/1.jpg/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b4/94/e8/b494e8c1-da48-dbb5-a8cc-c7f580591128/1.jpg/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/idle-harvest-farm-empire/id6760675821?uo=4",
+      "local_path": "public/images/app-previews/idle-harvest/preview-1.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "idle-harvest",
+      "provider": "App Store",
+      "label": "Grow your harvest",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/2b/8a/20/2b8a20c6-5394-b6c4-aabe-0e7993b3abe7/2__U00281_U0029.jpg/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/2b/8a/20/2b8a20c6-5394-b6c4-aabe-0e7993b3abe7/2__U00281_U0029.jpg/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/idle-harvest-farm-empire/id6760675821?uo=4",
+      "local_path": "public/images/app-previews/idle-harvest/preview-2.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "idle-harvest",
+      "provider": "App Store",
+      "label": "Upgrade your farm",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b1/38/0a/b1380afb-6e35-ba05-6030-7ef8cdb352b2/3__U00282_U0029.jpg/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b1/38/0a/b1380afb-6e35-ba05-6030-7ef8cdb352b2/3__U00282_U0029.jpg/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/idle-harvest-farm-empire/id6760675821?uo=4",
+      "local_path": "public/images/app-previews/idle-harvest/preview-3.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "idle-hobo",
+      "provider": "App Store",
+      "label": "Street legend",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d9/ea/3b/d9ea3b57-8b53-20f3-6aad-be09653f3508/Intro.png/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d9/ea/3b/d9ea3b57-8b53-20f3-6aad-be09653f3508/Intro.png/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/idle-hobo-street-legend/id6778127503?uo=4",
+      "local_path": "public/images/app-previews/idle-hobo/preview-1.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "idle-hobo",
+      "provider": "App Store",
+      "label": "Build your character",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d3/8d/2d/d38d2de8-bbd7-c4c6-1aea-a465a6ffc5ca/Home.png/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d3/8d/2d/d38d2de8-bbd7-c4c6-1aea-a465a6ffc5ca/Home.png/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/idle-hobo-street-legend/id6778127503?uo=4",
+      "local_path": "public/images/app-previews/idle-hobo/preview-2.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "idle-hobo",
+      "provider": "App Store",
+      "label": "Battle your rivals",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/74/62/2f/74622fcc-7476-1a79-b2a3-09af1ea558cb/Battle.png/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/74/62/2f/74622fcc-7476-1a79-b2a3-09af1ea558cb/Battle.png/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/idle-hobo-street-legend/id6778127503?uo=4",
+      "local_path": "public/images/app-previews/idle-hobo/preview-3.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "grade-pal",
+      "provider": "App Store",
+      "label": "Your courses",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/66/8d/9c/668d9cd2-bd3f-4daf-341e-2080af6d122f/mzl.jxatrbvg.png/392x696bb.png",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/66/8d/9c/668d9cd2-bd3f-4daf-341e-2080af6d122f/mzl.jxatrbvg.png/640x1280bb.png",
+      "store_url": "https://apps.apple.com/us/app/grade-pal-1-grade-tracker/id1442410668?uo=4",
+      "local_path": "public/images/app-previews/grade-pal/preview-1.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "grade-pal",
+      "provider": "App Store",
+      "label": "Grade calculator",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/5d/a4/24/5da42473-890f-d807-166a-5791eb41e441/mzl.okvcwpwg.png/392x696bb.png",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/5d/a4/24/5da42473-890f-d807-166a-5791eb41e441/mzl.okvcwpwg.png/640x1280bb.png",
+      "store_url": "https://apps.apple.com/us/app/grade-pal-1-grade-tracker/id1442410668?uo=4",
+      "local_path": "public/images/app-previews/grade-pal/preview-2.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "grade-pal",
+      "provider": "App Store",
+      "label": "Custom courses",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/17/33/4a/17334ab0-31f1-d209-f432-b2d0dd882bff/mzl.qacfmsue.png/392x696bb.png",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/17/33/4a/17334ab0-31f1-d209-f432-b2d0dd882bff/mzl.qacfmsue.png/640x1280bb.png",
+      "store_url": "https://apps.apple.com/us/app/grade-pal-1-grade-tracker/id1442410668?uo=4",
+      "local_path": "public/images/app-previews/grade-pal/preview-3.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "elementals-alchemy",
+      "provider": "App Store",
+      "label": "A world of elements",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/93/65/e5/9365e5e7-fbe2-6a0b-1406-a3e246db0977/7790701d-19b1-4e78-acf6-922e3c241bc0_1.png/392x696bb.png",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/93/65/e5/9365e5e7-fbe2-6a0b-1406-a3e246db0977/7790701d-19b1-4e78-acf6-922e3c241bc0_1.png/640x1280bb.png",
+      "store_url": "https://apps.apple.com/us/app/elementals-alchemy/id6478245563?uo=4",
+      "local_path": "public/images/app-previews/elementals-alchemy/preview-1.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "elementals-alchemy",
+      "provider": "App Store",
+      "label": "Merge elements",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/b2/01/93/b20193b7-9061-4c57-144b-b73e8da4a212/c41f0263-2d54-4fa8-8989-54ca1dd0d8c3_2.png/392x696bb.png",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/b2/01/93/b20193b7-9061-4c57-144b-b73e8da4a212/c41f0263-2d54-4fa8-8989-54ca1dd0d8c3_2.png/640x1280bb.png",
+      "store_url": "https://apps.apple.com/us/app/elementals-alchemy/id6478245563?uo=4",
+      "local_path": "public/images/app-previews/elementals-alchemy/preview-2.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "elementals-alchemy",
+      "provider": "App Store",
+      "label": "New discoveries",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/b8/fa/36/b8fa3623-9145-10d6-ca44-212fcee23426/efb1a87a-d488-4698-b673-11038466e4db_3.png/392x696bb.png",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/b8/fa/36/b8fa3623-9145-10d6-ca44-212fcee23426/efb1a87a-d488-4698-b673-11038466e4db_3.png/640x1280bb.png",
+      "store_url": "https://apps.apple.com/us/app/elementals-alchemy/id6478245563?uo=4",
+      "local_path": "public/images/app-previews/elementals-alchemy/preview-3.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "stack-em",
+      "provider": "App Store",
+      "label": "Build your tower",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/70/f2/37/70f23793-fbb5-65bb-0346-2470def88ef5/1.png/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/70/f2/37/70f23793-fbb5-65bb-0346-2470def88ef5/1.png/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/stack-em-tower/id6761726968?uo=4",
+      "local_path": "public/images/app-previews/stack-em/preview-1.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "stack-em",
+      "provider": "App Store",
+      "label": "Find your balance",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/79/c8/c3/79c8c32a-2367-8a57-c40a-a4231f8ac49d/2.png/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/79/c8/c3/79c8c32a-2367-8a57-c40a-a4231f8ac49d/2.png/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/stack-em-tower/id6761726968?uo=4",
+      "local_path": "public/images/app-previews/stack-em/preview-2.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "stack-em",
+      "provider": "App Store",
+      "label": "Reach new heights",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/70/6c/84/706c84f8-1651-d551-597c-9f191000b08c/3.png/320x480bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/70/6c/84/706c84f8-1651-d551-597c-9f191000b08c/3.png/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/stack-em-tower/id6761726968?uo=4",
+      "local_path": "public/images/app-previews/stack-em/preview-3.webp",
+      "width": 591,
+      "height": 1280
+    },
+    {
+      "slug": "woof",
+      "provider": "Google Play",
+      "label": "The dog community",
+      "source_url": "https://play-lh.googleusercontent.com/sv3DX8HQ17FcYhv4mK_ItqGUJ7ArDkaPCRiRK3wReXQW4kPS-bHmSbEmCPaVYVFsCjew2WL8-TvibZVDHUu51g=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/sv3DX8HQ17FcYhv4mK_ItqGUJ7ArDkaPCRiRK3wReXQW4kPS-bHmSbEmCPaVYVFsCjew2WL8-TvibZVDHUu51g=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.woof&hl=en_US",
+      "local_path": "public/images/app-previews/woof/preview-1.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "woof",
+      "provider": "Google Play",
+      "label": "Explore more dogs",
+      "source_url": "https://play-lh.googleusercontent.com/2K3lVq21cWVbh9L6e0CPG0uNMo3wA7DQjFcGJcpCUPSRtsvPqqs2Z-Ux6jONtgTQGEgqFmtm6jUDYc0hl1iG=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/2K3lVq21cWVbh9L6e0CPG0uNMo3wA7DQjFcGJcpCUPSRtsvPqqs2Z-Ux6jONtgTQGEgqFmtm6jUDYc0hl1iG=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.woof&hl=en_US",
+      "local_path": "public/images/app-previews/woof/preview-2.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "woof",
+      "provider": "Google Play",
+      "label": "Find your favorites",
+      "source_url": "https://play-lh.googleusercontent.com/CNC5fXdBopGm6OVeY2xPDqPRKnKB_KK2HP7BB_Jq_n-hQz7LOfC6UVpDxdW92cLUIDdUSto-yr2pyFf3GHojim8=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/CNC5fXdBopGm6OVeY2xPDqPRKnKB_KK2HP7BB_Jq_n-hQz7LOfC6UVpDxdW92cLUIDdUSto-yr2pyFf3GHojim8=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.woof&hl=en_US",
+      "local_path": "public/images/app-previews/woof/preview-3.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "north-pole",
+      "provider": "Google Play",
+      "label": "Christmas planning",
+      "source_url": "https://play-lh.googleusercontent.com/fBBJBuAAnjj5ziKTwo7f0yIZjz6KQNmxmR3YMCPtix7EgKE5f2_nFpG_vPxObzVitjt-ukzwfOOTHSqAkbnhLA=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/fBBJBuAAnjj5ziKTwo7f0yIZjz6KQNmxmR3YMCPtix7EgKE5f2_nFpG_vPxObzVitjt-ukzwfOOTHSqAkbnhLA=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.northpole&hl=en_US",
+      "local_path": "public/images/app-previews/north-pole/preview-1.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "north-pole",
+      "provider": "Google Play",
+      "label": "Everyone on your list",
+      "source_url": "https://play-lh.googleusercontent.com/-4knwXCno6XpASVsNOsOCifzv8gkrNg0Xu2jgkXu29AFdXljNTy0IrfkF1UpA8SCh9XTxjTqvlaj4Yz3c9WLMbI=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/-4knwXCno6XpASVsNOsOCifzv8gkrNg0Xu2jgkXu29AFdXljNTy0IrfkF1UpA8SCh9XTxjTqvlaj4Yz3c9WLMbI=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.northpole&hl=en_US",
+      "local_path": "public/images/app-previews/north-pole/preview-2.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "north-pole",
+      "provider": "Google Play",
+      "label": "Gift budgets",
+      "source_url": "https://play-lh.googleusercontent.com/q4L-i1aQDZDjSVpyVgrex_WPcnSHuPWRc8Szf81xmqzqvN6SDmSb5lrzzy9fW5olKh-C4-2wjJ1yQ1xDN72hzw=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/q4L-i1aQDZDjSVpyVgrex_WPcnSHuPWRc8Szf81xmqzqvN6SDmSb5lrzzy9fW5olKh-C4-2wjJ1yQ1xDN72hzw=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.northpole&hl=en_US",
+      "local_path": "public/images/app-previews/north-pole/preview-3.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "jokes",
+      "provider": "Google Play",
+      "label": "A daily laugh",
+      "source_url": "https://play-lh.googleusercontent.com/MqiSSxnYh1D8TJOTrsCgXRKbw9ZWCXwaVoJAR7-DN6rdPH5E_PPWnTvyEAta0zpln07NMTSsGS0CE9Mt64ABUA=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/MqiSSxnYh1D8TJOTrsCgXRKbw9ZWCXwaVoJAR7-DN6rdPH5E_PPWnTvyEAta0zpln07NMTSsGS0CE9Mt64ABUA=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.jokes&hl=en_US",
+      "local_path": "public/images/app-previews/jokes/preview-1.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "jokes",
+      "provider": "Google Play",
+      "label": "Joke categories",
+      "source_url": "https://play-lh.googleusercontent.com/gYGKVsubbaYUO4iqQfE_EfmepEMVVIA3G21ue-ogTmV-0b3wMhN9wy6v_KQu8nCr2bi0YoDY4nvqnCRCAIu3kw=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/gYGKVsubbaYUO4iqQfE_EfmepEMVVIA3G21ue-ogTmV-0b3wMhN9wy6v_KQu8nCr2bi0YoDY4nvqnCRCAIu3kw=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.jokes&hl=en_US",
+      "local_path": "public/images/app-previews/jokes/preview-2.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "jokes",
+      "provider": "Google Play",
+      "label": "Your favorites",
+      "source_url": "https://play-lh.googleusercontent.com/VmszNqxhD71m_8W7gEx7FV99Bp_-g4zeRoUR3IJoYJwNd5bim0NbehoAkgF2oEIBo7X-0Yddtc8Y9yknx5aGwg=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/VmszNqxhD71m_8W7gEx7FV99Bp_-g4zeRoUR3IJoYJwNd5bim0NbehoAkgF2oEIBo7X-0Yddtc8Y9yknx5aGwg=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.jokes&hl=en_US",
+      "local_path": "public/images/app-previews/jokes/preview-3.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "52-card-workout",
+      "provider": "Google Play",
+      "label": "Your workouts",
+      "source_url": "https://play-lh.googleusercontent.com/PNWdUOZLXA5GlCicZMgZMViE2hlFvJpVWd_PWFk71SYe1zMqwmQ9uyYrJZdR37a_g8OP9vOVQNfXthoiIZPEUQw=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/PNWdUOZLXA5GlCicZMgZMViE2hlFvJpVWd_PWFk71SYe1zMqwmQ9uyYrJZdR37a_g8OP9vOVQNfXthoiIZPEUQw=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.cardworkout&hl=en_US",
+      "local_path": "public/images/app-previews/52-card-workout/preview-1.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "52-card-workout",
+      "provider": "Google Play",
+      "label": "A workout in progress",
+      "source_url": "https://play-lh.googleusercontent.com/PMLttbXkv2H_qWnqY3XVlNi1ELB1krFlk5-mQVqfxFT78K1XXlmUH8Y6jpMbCklpeNdebJMytZXr_YXCsRYBYQ=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/PMLttbXkv2H_qWnqY3XVlNi1ELB1krFlk5-mQVqfxFT78K1XXlmUH8Y6jpMbCklpeNdebJMytZXr_YXCsRYBYQ=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.cardworkout&hl=en_US",
+      "local_path": "public/images/app-previews/52-card-workout/preview-2.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "52-card-workout",
+      "provider": "Google Play",
+      "label": "Workout history",
+      "source_url": "https://play-lh.googleusercontent.com/vD6XA67KwNI0qix5vr1Z0gjKW5Fl7nNGw8p6ncEgp-fQnvAiiz4Tntqv9vwyYR7FDuaI4CZ7g5K7FIxf97Eshw=w526-h296",
+      "download_url": "https://play-lh.googleusercontent.com/vD6XA67KwNI0qix5vr1Z0gjKW5Fl7nNGw8p6ncEgp-fQnvAiiz4Tntqv9vwyYR7FDuaI4CZ7g5K7FIxf97Eshw=w720",
+      "store_url": "https://play.google.com/store/apps/details?id=com.chrishouston.cardworkout&hl=en_US",
+      "local_path": "public/images/app-previews/52-card-workout/preview-3.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "i-dont-care",
+      "provider": "App Store",
+      "label": "Dinner decisions",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/53/a7/e6/53a7e6f0-4903-002c-fbe3-05387ec7e92d/pr_source.jpg/392x696bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/53/a7/e6/53a7e6f0-4903-002c-fbe3-05387ec7e92d/pr_source.jpg/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/i-dont-care-restaurant-wheel/id1493874407?uo=4",
+      "local_path": "public/images/app-previews/i-dont-care/preview-1.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "i-dont-care",
+      "provider": "App Store",
+      "label": "Find nearby restaurants",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/7b/ae/78/7bae787a-4106-39d4-623e-46c2d0f5eb8d/pr_source.jpg/392x696bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/7b/ae/78/7bae787a-4106-39d4-623e-46c2d0f5eb8d/pr_source.jpg/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/i-dont-care-restaurant-wheel/id1493874407?uo=4",
+      "local_path": "public/images/app-previews/i-dont-care/preview-2.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "slug": "i-dont-care",
+      "provider": "App Store",
+      "label": "Spin the wheel",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/40/f8/ab/40f8ab16-137e-10b9-f529-421b8a4e3c4a/pr_source.jpg/392x696bb.jpg",
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/40/f8/ab/40f8ab16-137e-10b9-f529-421b8a4e3c4a/pr_source.jpg/640x1280bb.jpg",
+      "store_url": "https://apps.apple.com/us/app/i-dont-care-restaurant-wheel/id1493874407?uo=4",
+      "local_path": "public/images/app-previews/i-dont-care/preview-3.webp",
+      "width": 640,
+      "height": 1138
+    }
+  ]
+}

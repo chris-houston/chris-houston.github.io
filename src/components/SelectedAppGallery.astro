@@ -1,0 +1,136 @@
+---
+import { apps } from '../data/apps';
+import { appPreviews } from '../data/app-previews';
+import Arrow from './Arrow.astro';
+import '../styles/app-previews.css';
+---
+<section class="selected-app-gallery" id="app-previews" data-app-gallery aria-labelledby="app-preview-heading">
+  <div class="container preview-heading">
+    <div><p class="eyebrow">The app, up close</p><h2 id="app-preview-heading">Inside <span data-preview-name>{apps[0].name}</span>.</h2></div>
+    <a class="preview-details-link" data-preview-details href={`/apps/${apps[0].slug}/`}>Explore the app <Arrow diagonal /></a>
+  </div>
+  <div class="container">
+    {apps.map((app, index) => <div data-preview-panel={app.slug} data-preview-app-name={app.name} hidden={index !== 0}>
+      <div class="preview-rail" data-preview-rail tabindex="0" role="region" aria-label={`${app.name} previews. Swipe or use the arrow buttons to browse.`}>
+        <div class="preview-track">
+          {appPreviews[app.slug].map((screen, i) => <a class="preview-card" style={`--preview-ratio:${screen.width / screen.height};--preview-delay:${i * 65}ms`} href={screen.src} data-enlarge data-preview-label={screen.label} aria-label={`Enlarge ${app.name} preview: ${screen.label}`}>
+            <span class="preview-frame"><img src={screen.src} width={screen.width} height={screen.height} alt={screen.alt} loading="lazy" decoding="async" /></span>
+            <span class="preview-caption"><span class="preview-number" aria-hidden="true">{String(i + 1).padStart(2,'0')}</span><span>{screen.label}</span><Arrow diagonal /></span>
+          </a>)}
+        </div>
+      </div>
+    </div>)}
+    <div class="preview-bottom"><p>Store previews. Select an image to enlarge.</p><div class="preview-navigation"><span data-preview-count>{appPreviews[apps[0].slug].length} previews</span><div class="preview-scroll-controls" data-preview-scroll-controls hidden><button type="button" class="preview-previous" data-preview-previous aria-label="Show previous screenshots"><Arrow /></button><button type="button" data-preview-next aria-label="Show more screenshots"><Arrow /></button></div></div></div>
+  </div>
+  <dialog class="preview-lightbox" data-preview-lightbox aria-label="Expanded app preview">
+    <div class="lightbox-toolbar"><p data-lightbox-title></p><button type="button" data-lightbox-close>Close <span aria-hidden="true">×</span></button></div>
+    <img class="lightbox-image" data-lightbox-image alt="" />
+    <div class="lightbox-navigation"><button type="button" class="preview-previous" data-lightbox-previous aria-label="View previous screenshot"><Arrow /></button><p data-lightbox-count aria-live="polite"></p><button type="button" data-lightbox-next aria-label="View next screenshot"><Arrow /></button></div>
+  </dialog>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-app-gallery]').forEach(gallery => {
+    const panels = Array.from(gallery.querySelectorAll<HTMLElement>('[data-preview-panel]'));
+    const name = gallery.querySelector<HTMLElement>('[data-preview-name]');
+    const details = gallery.querySelector<HTMLAnchorElement>('[data-preview-details]');
+    const count = gallery.querySelector<HTMLElement>('[data-preview-count]');
+    const scrollControls = gallery.querySelector<HTMLElement>('[data-preview-scroll-controls]');
+    const previous = gallery.querySelector<HTMLButtonElement>('[data-preview-previous]');
+    const next = gallery.querySelector<HTMLButtonElement>('[data-preview-next]');
+    const dialog = gallery.querySelector<HTMLDialogElement>('[data-preview-lightbox]');
+    const image = gallery.querySelector<HTMLImageElement>('[data-lightbox-image]');
+    const title = gallery.querySelector<HTMLElement>('[data-lightbox-title]');
+    const dialogCount = gallery.querySelector<HTMLElement>('[data-lightbox-count]');
+    if (!name || !details || !count || !scrollControls || !previous || !next || !dialog || !image || !title || !dialogCount) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let active = panels[0];
+    let selectedSlug: string | undefined;
+    let rail = active.querySelector<HTMLElement>('[data-preview-rail]')!;
+    let links = Array.from(active.querySelectorAll<HTMLAnchorElement>('[data-enlarge]'));
+    let screenIndex = 0;
+    let returnFocus: HTMLAnchorElement | null = null;
+    let previousOverflow = '';
+    const updateArrows = () => {
+      const end = rail.scrollWidth - rail.clientWidth;
+      scrollControls.hidden = end < 2;
+      previous.disabled = rail.scrollLeft < 2;
+      next.disabled = rail.scrollLeft > end - 2;
+    };
+    const selectApp = (slug: string) => {
+      const panel = panels.find(item => item.dataset.previewPanel === slug);
+      if (!panel || selectedSlug === slug) return;
+      selectedSlug = slug;
+      gallery.dataset.previewsInView = 'false';
+      if (dialog.open) dialog.close();
+      active = panel;
+      panels.forEach(item => { item.hidden = item !== active; });
+      rail = active.querySelector<HTMLElement>('[data-preview-rail]')!;
+      links = Array.from(active.querySelectorAll<HTMLAnchorElement>('[data-enlarge]'));
+      name.textContent = active.dataset.previewAppName ?? '';
+      details.href = `/apps/${slug}/`;
+      details.setAttribute('aria-label', `Explore ${active.dataset.previewAppName}`);
+      count.textContent = `${links.length} previews`;
+      rail.scrollTo({ left: 0, behavior: 'instant' });
+      updateArrows();
+    };
+    const scroll = (direction: number) => {
+      const track = rail.querySelector<HTMLElement>('.preview-track')!;
+      const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0;
+      const step = (links[0]?.getBoundingClientRect().width ?? 280) + gap;
+      rail.scrollBy({ left: direction * step, behavior: reduced.matches ? 'instant' : 'smooth' });
+    };
+    previous.addEventListener('click', () => scroll(-1));
+    next.addEventListener('click', () => scroll(1));
+    panels.forEach(panel => {
+      const panelRail = panel.querySelector<HTMLElement>('[data-preview-rail]')!;
+      panelRail.addEventListener('scroll', () => { if (panel === active) updateArrows(); }, {passive:true});
+      panelRail.addEventListener('keydown', event => {
+        if (event.target !== panelRail || !['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+        event.preventDefault();
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') scroll(event.key === 'ArrowLeft' ? -1 : 1);
+        else rail.scrollTo({ left: event.key === 'Home' ? 0 : rail.scrollWidth, behavior: reduced.matches ? 'instant' : 'smooth' });
+      });
+    });
+    const showScreen = (index: number) => {
+      screenIndex = (index + links.length) % links.length;
+      const link = links[screenIndex];
+      const thumbnail = link.querySelector<HTMLImageElement>('img')!;
+      image.src = link.href;
+      image.alt = thumbnail.alt;
+      title.textContent = `${active.dataset.previewAppName} / ${link.dataset.previewLabel}`;
+      dialogCount.textContent = `${screenIndex + 1} / ${links.length}`;
+    };
+    gallery.querySelectorAll<HTMLAnchorElement>('[data-enlarge]').forEach(link => {
+      link.setAttribute('aria-haspopup', 'dialog');
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        returnFocus = link;
+        showScreen(links.indexOf(link));
+        previousOverflow = document.documentElement.style.overflow;
+        document.documentElement.style.overflow = 'hidden';
+        dialog.showModal();
+      });
+    });
+    gallery.querySelector('[data-lightbox-close]')?.addEventListener('click', () => dialog.close());
+    gallery.querySelector('[data-lightbox-previous]')?.addEventListener('click', () => showScreen(screenIndex - 1));
+    gallery.querySelector('[data-lightbox-next]')?.addEventListener('click', () => showScreen(screenIndex + 1));
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('keydown', event => {
+      if (!['ArrowLeft','ArrowRight'].includes(event.key)) return;
+      event.preventDefault(); showScreen(screenIndex + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+    dialog.addEventListener('close', () => { document.documentElement.style.overflow = previousOverflow; returnFocus?.focus({preventScroll:true}); });
+    document.addEventListener('app-preview-change', event => selectApp((event as CustomEvent<{slug: string}>).detail.slug));
+    const resize = new ResizeObserver(updateArrows);
+    panels.forEach(panel => resize.observe(panel.querySelector('[data-preview-rail]')!));
+    // Start each entrance when its images are on screen, including selections made above the gallery.
+    const arrivals = new IntersectionObserver(entries => {
+      const currentRail = entries.find(entry => entry.target === rail);
+      if (currentRail) gallery.dataset.previewsInView = String(currentRail.isIntersecting && currentRail.intersectionRatio >= .08);
+    }, { threshold: .08 });
+    panels.forEach(panel => arrivals.observe(panel.querySelector('[data-preview-rail]')!));
+    gallery.dataset.enhanced = 'true';
+    const current = document.querySelector<HTMLElement>('[data-pick][aria-pressed="true"]')?.dataset.pick ?? panels[0].dataset.previewPanel!;
+    selectApp(current);
+  });
+</script>

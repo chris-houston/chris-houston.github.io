@@ -1,0 +1,7 @@
+import type { APIRoute } from 'astro';
+import { apps } from '../data/apps';
+
+export const GET: APIRoute = () => {
+  const routes = ['/', '/apps/', '/support/', ...apps.map(app => `/apps/${app.slug}/`)];
+  return new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map(path => `<url><loc>https://chris-houston.github.io${path}</loc></url>`).join('')}</urlset>`, { headers: { 'Content-Type': 'application/xml' } });
+};

@@ -1,0 +1,109 @@
+---
+import { apps } from '../data/apps';
+import Arrow from './Arrow.astro';
+import StoreLinks from './StoreLinks.astro';
+import AppRating from './AppRating.astro';
+import SelectedAppGallery from './SelectedAppGallery.astro';
+import '../styles/playground.css';
+const entranceOrder = [1,2,3,4,6,11,12,8,0,9,7,10,5];
+const positions = [
+  [47,87,-8,76], [14,16,-16,88], [39,4,-9,62], [70,8,14,76],
+  [91,22,15,88], [5,45,-13,67], [93,51,17,76], [18,70,-12,91],
+  [79,76,11,83], [29,93,-16,58], [4,89,-8,65], [97,87,12,58], [64,96,8,60],
+];
+---
+<section class="app-playground" id="all-apps" data-playground aria-labelledby="playground-heading">
+  <h1 class="sr-only" id="playground-heading">Apps and games by Chris Houston</h1>
+  <p class="scene-mobile-hint container">Tap an app icon to explore.</p>
+  <div class="playground-stage container" data-scene>
+    <div class="scene-atmosphere" aria-hidden="true"><div class="scene-guides"></div></div>
+    {apps.map((app, i) => <div class="spotlight-panel" data-spotlight={app.slug} hidden={i !== 0}>
+      <div class="spotlight-copy">
+        <div class="spotlight-label"><span>{i === 0 ? 'Featured app' : app.category}</span><span>{app.stores.ios && app.stores.android ? 'iOS + Android' : app.stores.ios ? 'iOS' : 'Android'}</span></div>
+        <h2>{app.name}</h2>
+        <p>{i === 0 ? 'Your Fortnite companion.' : app.tagline}</p>
+        <p class="spotlight-description">{i === 0 ? 'The item shop, your next skin, and everything happening in the game. All in one companion app.' : app.description}</p>
+        {i === 0 && <AppRating />}
+        <StoreLinks app={app} />
+        <a class="spotlight-detail text-link" href="#app-previews" aria-label={`View ${app.name} screenshots`}>View screenshots <Arrow /></a>
+      </div>
+      <div class="spotlight-visual" aria-hidden="true">
+        <div class="scene-depth"><div class="scene-app-object"><div class="object-plinth"></div><img src={app.icon} width="384" height="384" alt="" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} /></div></div>
+      </div>
+    </div>)}
+    <div class="app-constellation" aria-label="Choose an app to preview">
+      {apps.map((app, i) => <a href={`/apps/${app.slug}/`} class="constellation-app" data-pick={app.slug} style={`--x:${positions[i][0]}%;--y:${positions[i][1]}%;--rotation:${positions[i][2]}deg;--tile-size:${positions[i][3]}px;--delay:${i % 3 * -2}s;--pop-delay:${110 + entranceOrder.indexOf(i) * 55}ms;--pop-turn:${i % 2 ? -18 : 18}deg`} aria-label={`Preview ${app.name}`} title={app.name}>
+        <span class="constellation-arrival"><span class="constellation-tile"><img src={app.icon} width="96" height="96" alt="" loading="eager" decoding="async" /></span></span><span class="constellation-name">{app.name}</span>
+      </a>)}
+    </div>
+  </div>
+  <div class="playground-bottom container">
+    <div class="playground-browse"><p class="playground-instruction"><span class="pick-symbol" aria-hidden="true">↗</span> Pick an icon to explore.</p><a class="collection-link" href="/apps/">View all {apps.length} apps <Arrow diagonal /></a></div>
+    <div class="playground-controls" data-spotlight-controls hidden><div class="spotlight-pagination"><button type="button" data-spotlight-prev aria-label="Preview previous app"><Arrow /></button><span><strong data-spotlight-number>01</strong> / {apps.length}</span><button type="button" data-spotlight-next aria-label="Preview next app"><Arrow /></button></div></div>
+  </div>
+  <span class="sr-only" role="status" data-spotlight-status></span>
+  <p class="playground-disclaimer container" data-llama-disclaimer>Daily Llama is an unofficial companion app and is not affiliated with Epic Games.</p>
+  <SelectedAppGallery />
+</section>
+<script>
+  const playground = document.querySelector<HTMLElement>('[data-playground]');
+  if (playground) {
+    const panels = Array.from(playground.querySelectorAll<HTMLElement>('[data-spotlight]'));
+    const picks = Array.from(playground.querySelectorAll<HTMLAnchorElement>('[data-pick]'));
+    const controls = playground.querySelector<HTMLElement>('[data-spotlight-controls]');
+    const number = playground.querySelector<HTMLElement>('[data-spotlight-number]');
+    const disclaimer = playground.querySelector<HTMLElement>('[data-llama-disclaimer]');
+    const scene = playground.querySelector<HTMLElement>('[data-scene]');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const status = playground.querySelector<HTMLElement>('[data-spotlight-status]');
+    let motion = !reduced.matches;
+    const updateMotion = () => {
+      playground.dataset.motion = motion ? 'playing' : 'paused';
+      scene?.style.setProperty('--pointer-x', '0px');
+      scene?.style.setProperty('--pointer-y', '0px');
+    };
+    reduced.addEventListener('change', () => { motion = !reduced.matches; updateMotion(); });
+    updateMotion();
+    let selected = 0;
+    const select = (index: number) => {
+      selected = (index + panels.length) % panels.length;
+      panels.forEach((panel, i) => { panel.hidden = i !== selected; });
+      picks.forEach((pick, i) => { pick.setAttribute('aria-pressed', String(i === selected)); });
+      if (status) status.textContent = `Previewing ${picks[selected].title}.`;
+      if (number) number.textContent = String(selected + 1).padStart(2, '0');
+      if (disclaimer) disclaimer.hidden = selected !== 0;
+      playground.dispatchEvent(new CustomEvent('app-preview-change', { bubbles: true, detail: { slug: panels[selected].dataset.spotlight } }));
+    };
+    picks.forEach((pick, index) => {
+      pick.setAttribute('role', 'button');
+      pick.setAttribute('aria-controls', `spotlight-${index}`);
+      panels[index].id = `spotlight-${index}`;
+      pick.addEventListener('click', event => { event.preventDefault(); select(index); });
+      pick.addEventListener('keydown', event => {
+        if (event.key === ' ') { event.preventDefault(); select(index); }
+        if (['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) {
+          event.preventDefault();
+          const target = event.key === 'Home' ? 0 : event.key === 'End' ? picks.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + picks.length) % picks.length;
+          picks[target].focus(); select(target);
+        }
+      });
+    });
+    playground.querySelector('[data-spotlight-prev]')?.addEventListener('click', () => select(selected - 1));
+    playground.querySelector('[data-spotlight-next]')?.addEventListener('click', () => select(selected + 1));
+    if (controls) controls.hidden = false;
+    playground.dataset.enhanced = 'true';
+    select(0);
+    new IntersectionObserver(entries => { playground.dataset.inView = String(entries[0].isIntersecting); }).observe(scene ?? playground);
+    let pointerFrame = 0;
+    scene?.addEventListener('pointermove', event => {
+      if (!motion || reduced.matches || event.pointerType !== 'mouse' || pointerFrame) return;
+      pointerFrame = requestAnimationFrame(() => {
+        const rect = scene.getBoundingClientRect();
+        scene.style.setProperty('--pointer-x', `${((event.clientX - rect.left) / rect.width - .5) * 12}px`);
+        scene.style.setProperty('--pointer-y', `${((event.clientY - rect.top) / rect.height - .5) * 9}px`);
+        pointerFrame = 0;
+      });
+    });
+    scene?.addEventListener('pointerleave', () => { cancelAnimationFrame(pointerFrame); pointerFrame = 0; scene.style.setProperty('--pointer-x', '0px'); scene.style.setProperty('--pointer-y', '0px'); });
+  }
+</script>

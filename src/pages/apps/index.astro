@@ -1,0 +1,68 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import CollectionCard from '../../components/CollectionCard.astro';
+import Arrow from '../../components/Arrow.astro';
+import { apps } from '../../data/apps';
+import '../../styles/collection.css';
+const collection = [apps[0], apps.find(app => app.slug === 'idle-hobo')!, ...apps.filter(app => !['daily-llama', 'idle-hobo'].includes(app.slug))];
+const categories = [{value:'all', label:'All apps'}, ...['Games', 'Everyday', 'Companions'].map(category => ({value:category, label:category}))];
+---
+<SiteLayout title="Explore the apps — Houston Apps" description="Explore Daily Llama, colorful games, and everyday tools. Find your next favorite app for iOS or Android.">
+  <div class="catalog-page">
+    <section class="catalog-intro container" aria-labelledby="catalog-heading"><div><p class="eyebrow">The collection</p><h1 id="catalog-heading">Explore the apps<span>.</span></h1></div><p>Games to get lost in. Tools to make life easier. Find something for your home screen.</p></section>
+    <section class="catalog-collection container" aria-label="App collection">
+      <div class="catalog-toolbar" data-filters hidden>
+        <div class="catalog-filters" role="group" aria-label="Filter apps by category">{categories.map(category => <button type="button" data-filter={category.value} aria-pressed={category.value === 'all'}><span>{category.label}</span><span class="catalog-filter-count" data-filter-count>{apps.filter(app => category.value === 'all' || app.category === category.value).length}</span></button>)}</div>
+        <label class="catalog-platform">Available on<select aria-label="Filter apps by platform" data-platform><option value="all">All platforms</option><option value="iOS">iOS</option><option value="Android">Android</option></select></label>
+      </div>
+      <div class="catalog-results"><p data-collection-label>The full collection</p><p aria-live="polite" role="status" data-app-count>Showing all {apps.length} apps</p></div>
+      <div class="catalog-grid" data-catalog-grid>{collection.map((app, index) => <CollectionCard app={app} index={index} featured={index === 0} wide={index === collection.length - 1} />)}</div>
+      <div class="catalog-empty" data-empty hidden><h2>No apps here yet.</h2><p>Try another category or platform.</p><button type="button" class="button button-dark" data-reset-filters>Show all apps <Arrow /></button></div>
+    </section>
+    <section class="catalog-support container"><div><h2>A little help with your apps.</h2><p>Questions, feedback, or something not working?</p></div><a href="/support/">Find app support <Arrow diagonal /></a></section>
+  </div>
+</SiteLayout>
+<script>
+  const filters = document.querySelector<HTMLElement>('[data-filters]');
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter]'));
+  const platform = document.querySelector<HTMLSelectElement>('[data-platform]');
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-app-card]'));
+  const grid = document.querySelector<HTMLElement>('[data-catalog-grid]');
+  const count = document.querySelector<HTMLElement>('[data-app-count]');
+  const label = document.querySelector<HTMLElement>('[data-collection-label]');
+  const empty = document.querySelector<HTMLElement>('[data-empty]');
+  const params = new URLSearchParams(window.location.search);
+  const requestedCategory = params.get('category')?.toLowerCase();
+  let category = buttons.find(button => button.dataset.filter?.toLowerCase() === requestedCategory)?.dataset.filter ?? 'all';
+  if (platform) platform.value = ['ios','android'].includes(params.get('platform')?.toLowerCase() ?? '') ? (params.get('platform')!.toLowerCase() === 'ios' ? 'iOS' : 'Android') : 'all';
+  const matchesPlatform = (card: HTMLElement) => platform?.value === 'all' || card.dataset.platforms?.split(' + ').includes(platform?.value ?? '');
+  const update = (syncUrl = false) => {
+    const visible = cards.filter(card => (category === 'all' || card.dataset.category === category) && matchesPlatform(card));
+    cards.forEach(card => { card.hidden = !visible.includes(card); delete card.dataset.wide; });
+    // Give the last card the remaining space in the desktop grid.
+    const units = visible.length + (visible.some(card => card.classList.contains('catalog-card-featured')) ? 1 : 0);
+    if (visible.length > 1 && units % 3 === 2) visible[visible.length - 1].dataset.wide = 'true';
+    if (grid) grid.dataset.count = String(visible.length);
+    buttons.forEach(button => {
+      const value = button.dataset.filter;
+      button.setAttribute('aria-pressed', String(value === category));
+      const available = cards.filter(card => (value === 'all' || card.dataset.category === value) && matchesPlatform(card)).length;
+      const badge = button.querySelector('[data-filter-count]');
+      if (badge) badge.textContent = String(available);
+    });
+    if (count) count.textContent = `Showing ${visible.length === cards.length ? 'all ' : ''}${visible.length} ${visible.length === 1 ? 'app' : 'apps'}`;
+    if (label) label.textContent = category === 'all' ? 'The full collection' : category;
+    if (empty) empty.hidden = visible.length > 0;
+    if (syncUrl) {
+      const url = new URL(window.location.href);
+      category === 'all' ? url.searchParams.delete('category') : url.searchParams.set('category', category.toLowerCase());
+      platform?.value === 'all' ? url.searchParams.delete('platform') : url.searchParams.set('platform', platform!.value.toLowerCase());
+      window.history.replaceState(null, '', url);
+    }
+  };
+  if (filters) filters.hidden = false;
+  buttons.forEach(button => button.addEventListener('click', () => { category = button.dataset.filter ?? 'all'; update(true); }));
+  platform?.addEventListener('change', () => update(true));
+  document.querySelector('[data-reset-filters]')?.addEventListener('click', () => { category = 'all'; if (platform) platform.value = 'all'; update(true); });
+  update();
+</script>

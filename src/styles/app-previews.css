@@ -1,0 +1,66 @@
+.selected-app-gallery { --preview-height: 470px; color: #edf4ff; padding-block: 24px 40px; scroll-margin-top: 0; }
+.preview-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 32px; }
+.preview-heading .eyebrow { color: #a5b7d1; margin-bottom: 13px; }
+.preview-heading h2 { font-size: clamp(32px,3.5vw,47px); line-height: 1.15; letter-spacing: -.05em; }
+.preview-details-link { display: flex; align-items: center; gap: 12px; font-size: 16px; white-space: nowrap; padding-block: 8px; }
+.preview-details-link .arrow-icon { width: 20px; height: 20px; }
+.preview-details-link:hover { color: #a9caff; }
+.preview-rail { overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: #637fa6 transparent; overscroll-behavior-x: contain; scroll-snap-type: x proximity; padding: 12px 5px 22px; margin-inline: -5px; }
+.preview-track { display: flex; gap: 24px; width: max-content; min-width: 100%; justify-content: center; }
+.preview-card { display: block; width: calc(var(--preview-height) * var(--preview-ratio)); flex-shrink: 0; scroll-snap-align: start; }
+.preview-frame { display: block; aspect-ratio: var(--preview-ratio); border-radius: 18px; overflow: hidden; box-shadow: 0 12px 24px #0003,0 0 0 1px #d5e5ff25; transition: transform .25s,box-shadow .25s; }
+.preview-frame img { width: 100%; height: auto; }
+.preview-card:hover .preview-frame { transform: translateY(-5px); box-shadow: 0 20px 30px #0005,0 0 0 1px #d5e5ff50; }
+.preview-caption { display: flex; align-items: baseline; gap: 13px; font-size: 16px; line-height: 1.5; padding-block: 18px 8px; }
+.preview-caption > span:nth-child(2) { flex: 1; }
+.preview-number { font-size: 14px; color: #95abc9; }
+.preview-caption .arrow-icon { width: 19px; height: 19px; align-self: center; }
+.preview-bottom { display: flex; align-items: center; justify-content: space-between; gap: 25px; border-top: 1px solid #43516c70; padding-top: 20px; margin-top: 6px; font-size: 14px; color: #a5b7d1; }
+.preview-navigation, .preview-scroll-controls { display: flex; align-items: center; gap: 10px; }
+.preview-navigation { gap: 24px; }
+.preview-scroll-controls button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid #5a739580; border-radius: 50%; background: #26334a80; color: #e6f0ff; }
+.preview-scroll-controls button:hover { background: #415981; }
+.preview-scroll-controls button:disabled { opacity: .35; cursor: default; }
+.preview-previous .arrow-icon { transform: rotate(180deg); }
+.preview-scroll-controls .arrow-icon { width: 20px; height: 20px; }
+.selected-app-gallery a:focus-visible,.selected-app-gallery button:focus-visible,.preview-rail:focus-visible { outline-color: #a9caff; }
+.preview-lightbox { max-width: min(1080px,94vw); max-height: 96dvh; margin: auto; padding: 0; overflow: visible; border: 0; background: transparent; color: #f0f5ff; }
+.preview-lightbox[open] { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.preview-lightbox::backdrop { background: #050a14f2; backdrop-filter: blur(12px); }
+.lightbox-toolbar { width: min(860px,92vw); display: flex; align-items: center; justify-content: space-between; gap: 30px; font-size: 16px; }
+.lightbox-toolbar > p { line-height: 1.5; }
+.lightbox-toolbar button { display: flex; align-items: center; gap: 15px; border: 0; background: transparent; padding: 10px 3px 10px 10px; font-size: 16px; }
+.lightbox-toolbar button > span { font-size: 29px; line-height: 1; }
+.lightbox-image { display: block; max-height: calc(96dvh - 145px); max-width: 92vw; width: auto; height: auto; object-fit: contain; border-radius: 9px; }
+.lightbox-navigation { display: flex; align-items: center; gap: 24px; font-size: 15px; }
+.lightbox-navigation button { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #7892b5; border-radius: 50%; background: #26374f; }
+.lightbox-navigation .arrow-icon { width: 21px; height: 21px; }
+.preview-lightbox button:focus-visible { outline-color: #a9caff; }
+@media (max-width: 800px) {
+  .selected-app-gallery { --preview-height: 445px; padding-top: 24px; }
+  .preview-heading { align-items: flex-start; flex-direction: column; gap: 17px; margin-bottom: 22px; }
+}
+@media (max-width: 600px) {
+  .selected-app-gallery { --preview-height: 420px; padding-block: 18px 28px; }
+  .preview-heading h2 { font-size: 34px; }
+  .preview-heading .eyebrow { font-size: 14px; margin-bottom: 10px; }
+  .preview-details-link { font-size: 15px; }
+  .preview-track { gap: 16px; }
+  .preview-frame { border-radius: 15px; }
+  .preview-caption { font-size: 15px; gap: 10px; padding-top: 15px; }
+  .preview-bottom { align-items: flex-start; flex-direction: column; gap: 17px; margin-top: 0; padding-top: 18px; }
+  .preview-navigation { width: 100%; justify-content: space-between; }
+  .lightbox-toolbar { gap: 15px; font-size: 14px; }
+  .lightbox-toolbar button { font-size: 15px; gap: 9px; }
+  .lightbox-image { max-height: calc(96dvh - 160px); }
+}
+@media (max-width: 360px) { .selected-app-gallery { --preview-height: 400px; } .preview-heading h2 { font-size: 31px; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .selected-app-gallery[data-enhanced="true"] [data-preview-panel]:not([hidden]) .preview-card { animation: preview-arrive .56s cubic-bezier(.16,1,.3,1) backwards; animation-delay: var(--preview-delay); }
+  .selected-app-gallery[data-enhanced="true"][data-previews-in-view="false"] [data-preview-panel]:not([hidden]) .preview-card { animation-play-state: paused; }
+  @keyframes preview-arrive {
+    from { opacity: 0; transform: translateY(18px) scale(.97); }
+    to { opacity: 1; transform: none; }
+  }
+}

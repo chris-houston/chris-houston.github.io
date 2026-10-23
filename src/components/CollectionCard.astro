@@ -1,0 +1,25 @@
+---
+import type { App } from '../data/apps';
+import { appPreviews } from '../data/app-previews';
+import Arrow from './Arrow.astro';
+import { appColors } from '../data/app-themes';
+interface Props { app: App; index: number; featured?: boolean; wide?: boolean; }
+const { app, index, featured = false, wide = false } = Astro.props;
+const previews = appPreviews[app.slug].slice(0, featured ? 2 : 1);
+const platforms = [app.stores.ios && 'iOS', app.stores.android && 'Android'].filter(Boolean).join(' + ');
+---
+<article class:list={['catalog-card', { 'catalog-card-featured': featured }]} data-app-card data-slug={app.slug} data-wide={wide ? 'true' : undefined} data-category={app.category} data-platforms={platforms} style={`--catalog-color:${appColors[app.slug]};--card-delay:${Math.min(index, 5) * 35}ms`}>
+  <a class="catalog-card-link" href={`/apps/${app.slug}/`} aria-label={`Explore ${app.name}`}>
+    <div class="catalog-art" aria-hidden="true">
+      <div class="catalog-art-lines"></div>
+      {previews.map(screen => <img class="catalog-screen" style={`--catalog-preview-ratio:${screen.width / screen.height}`} src={screen.src} width={screen.width} height={screen.height} alt="" loading={index < 2 ? 'eager' : 'lazy'} decoding="async" />)}
+      {!featured && <img class="catalog-icon" src={app.icon} width="192" height="192" alt="" loading={index < 2 ? 'eager' : 'lazy'} decoding="async" />}
+    </div>
+    <div class="catalog-copy">
+      <p class="catalog-kicker">{featured && <img class="catalog-feature-icon" src={app.icon} width="40" height="40" alt="" />}{featured ? 'Featured app' : app.category}</p>
+      <h2>{app.name}</h2>
+      <p class="catalog-description">{featured ? 'Your Fortnite companion. The item shop, cosmetics, and player stats.' : app.tagline}</p>
+      <div class="catalog-card-bottom"><span>{platforms}</span><span class="catalog-open">View app <Arrow diagonal /></span></div>
+    </div>
+  </a>
+</article>

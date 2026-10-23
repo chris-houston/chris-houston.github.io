@@ -1,0 +1,16 @@
+---
+import type { App } from '../data/apps';
+import Arrow from './Arrow.astro';
+interface Props { app: App; large?: boolean; }
+const { app, large = false } = Astro.props;
+---
+<article class:list={['app-card', { 'app-card-large': large }]} data-app-card data-category={app.category} data-platforms={`${app.stores.ios ? 'iOS' : ''} ${app.stores.android ? 'Android' : ''}`}>
+  <a class="app-card-link" href={`/apps/${app.slug}/`} aria-label={`Explore ${app.name}`}>
+    <div class="app-art" style={`--app-color:${app.color}`}>
+      <span class="app-category">{app.category}</span>
+      <img src={app.icon} alt={`${app.name} icon`} width="120" height="120" loading="lazy" />
+      <span class="art-corner" aria-hidden="true"><Arrow diagonal /></span>
+    </div>
+    <div class="app-card-copy"><div class="app-name-line"><h3>{app.name}</h3><span class="platform-label">{app.stores.ios && app.stores.android ? 'iOS + Android' : app.stores.ios ? 'iOS' : 'Android'}</span></div><p>{large ? app.tagline : app.description}</p></div>
+  </a>
+</article>

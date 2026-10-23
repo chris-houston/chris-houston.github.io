@@ -1,0 +1,43 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import StoreLinks from '../../components/StoreLinks.astro';
+import ScreenshotGallery from '../../components/ScreenshotGallery.astro';
+import CollectionCard from '../../components/CollectionCard.astro';
+import Arrow from '../../components/Arrow.astro';
+import AppRating from '../../components/AppRating.astro';
+import { apps, type App } from '../../data/apps';
+import { appColors } from '../../data/app-themes';
+import '../../styles/collection.css';
+import '../../styles/app-detail.css';
+export function getStaticPaths() { return apps.map(app => ({ params: { slug: app.slug }, props: { app } })); }
+interface Props { app: App; }
+const { app } = Astro.props;
+const isLlama = app.slug === 'daily-llama';
+const platforms = [app.stores.ios && 'iOS', app.stores.android && 'Android'].filter(Boolean).join(' + ');
+const related = apps.filter(other => other.slug !== app.slug && other.category === app.category).slice(0, 3);
+---
+<SiteLayout title={`${app.name} — Houston Apps`} description={app.description}>
+  <div class="app-detail" style={`--detail-color:${appColors[app.slug]}`}>
+    <div class="detail-stage">
+      <section class="detail-hero container" aria-labelledby="app-title">
+        <a class="detail-back" href="/apps/"><Arrow /> All apps</a>
+        <div class="detail-hero-grid">
+          <div class="detail-intro">
+            <div class="detail-identity"><img src={app.icon} width="128" height="128" alt="" fetchpriority="high" /><div><p class="eyebrow">{app.category} <span aria-hidden="true">/</span> {platforms}</p><h1 id="app-title">{app.name}</h1></div></div>
+            <p class="detail-tagline">{isLlama ? 'Your Fortnite companion.' : app.tagline}</p>
+            <p class="detail-description">{app.description}</p>
+            {isLlama && <AppRating />}
+          </div>
+          <aside class="detail-download" aria-label={`Download ${app.name}`}>
+            <h2>Get the app.</h2><p>Available for {platforms}.</p><StoreLinks app={app} />
+            <a class="detail-support-link" href={`/support/?app=${app.slug}`}>App support <Arrow diagonal /></a>
+          </aside>
+        </div>
+      </section>
+      <ScreenshotGallery app={app} />
+    </div>
+    {app.features.length > 0 && <section class="detail-features container" aria-labelledby="features-heading"><div><p class="eyebrow">The essentials</p><h2 id="features-heading">What you<br /> can do.</h2></div><ol>{app.features.map((feature, index) => <li><span aria-hidden="true">{String(index + 1).padStart(2,'0')}</span><h3>{feature}</h3></li>)}</ol></section>}
+    <section class="detail-help container" aria-label="App support and policies"><div><h2>Need a hand?</h2><a href={`/support/?app=${app.slug}`}>Get support for {app.name} <Arrow diagonal /></a></div><div class="detail-policies">{app.privacy && <a href={app.privacy}>Privacy policy <Arrow diagonal /></a>}{app.terms && <a href={app.terms}>Terms of service <Arrow diagonal /></a>}</div></section>
+    {related.length > 0 && <section class="detail-related container" aria-labelledby="related-heading"><div class="detail-section-heading"><h2 id="related-heading">More to explore.</h2><a href="/apps/">All apps <Arrow diagonal /></a></div><div class="detail-related-grid">{related.map((other, index) => <CollectionCard app={other} index={index + 2} />)}</div></section>}
+  </div>
+</SiteLayout>

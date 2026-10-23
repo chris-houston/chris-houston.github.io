@@ -1,0 +1,14 @@
+---
+import type { App } from '../data/apps';
+import { appPreviews } from '../data/app-previews';
+interface Props { app: App; }
+const { app } = Astro.props;
+const screens = appPreviews[app.slug];
+---
+<section class="detail-screens container" id="screenshots" aria-labelledby="screenshots-heading" data-detail-gallery>
+  <div class="detail-section-heading"><div><p class="eyebrow">The app, up close</p><h2 id="screenshots-heading">Inside {app.name}.</h2></div><p>{screens.length} app previews</p></div>
+  <div class="detail-screen-grid" style={`--screen-count:${screens.length};--screen-grid-width:${screens.length === 4 ? 1240 : 940}px`}>
+    {screens.map((screen, index) => <figure class="detail-screen"><div class="detail-screen-image"><img src={screen.src} width={screen.width} height={screen.height} alt={screen.alt} loading="lazy" decoding="async" /></div><figcaption><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{screen.label}</figcaption></figure>)}
+  </div>
+  {app.slug === 'daily-llama' && <p class="detail-disclaimer">Daily Llama is an unofficial Fortnite companion app and is not affiliated with Epic Games. In-game artwork and trademarks belong to their respective owners. Previews show example in-game content.</p>}
+</section>
